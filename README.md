@@ -16,12 +16,15 @@
    
 4. To work with GraphQL first need to understand scalar-types
 5. GraphQL comes with a set of default scalar types out of the box:
+
      Int: A signed 32‐bit integer.
      Float: A signed double-precision floating-point value.
      String: A UTF‐8 character sequence.
      Boolean: true or false.
      ID: The ID scalar type represents a unique identifier, often used to refetch an object or as the key for a cache.
+     
 6. By using these scalar types we can write Query's and Mutation's.
+
    Defining type:
    ==============
           type Address{
@@ -38,16 +41,18 @@
                  customerSignUpDate:String!
                  customerAccountVerified:Boolean
            }
+           
 7. Writing Query's:- Query is similar (GET HTTP Method)
+
     Query Example:-
     =============
-    
-    type Query{
-       getCustomerById(customerId:Int!):Customer
-       getCustomers:[Customer]
-    }
+        type Query{
+            getCustomerById(customerId:Int!):Customer
+            getCustomers:[Customer]
+        }
     
 8. Writing mutations:- Mutations are similar to (POST,PUT,DELETE  HTTP methods)
+
     Mutation Exmaple:-
     =================
        input updateCustomerInput{
