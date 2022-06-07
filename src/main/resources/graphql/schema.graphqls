@@ -1,0 +1,49 @@
+
+type Customer{
+    customerId:ID!
+    customerName:String!
+    customerPhoneNumber:String!
+    customerAddress:[Address]!
+    customerSignUpDate:String!
+    customerAccountVerified:Boolean
+}
+type Address{
+    addressId:ID!
+    streetName:String!
+    pinNumber:Int!
+    city:String!
+}
+
+ input customerInput{
+     customerId:ID
+     customerName:String!
+     customerPhoneNumber:String!
+     customerAddress:[addressInput]!
+     customerSignUpDate:String!
+     customerAccountVerified:Boolean
+ }
+
+input  updateCustomerInput{
+    customerId:ID!
+    customerName:String!
+    customerPhoneNumber:String!
+    customerAddress:[addressInput]!
+    customerSignUpDate:String!
+    customerAccountVerified:Boolean
+}
+input addressInput{
+    addressId:ID
+    streetName:String!
+    pinNumber:Int!
+    city:String!
+}
+type Mutation{
+    saveAddress(address:addressInput) : Address
+    saveCustomer(customer:customerInput) : Customer
+    deleteCustomer(customerId:Int!):String
+    updateCustomer(customer:updateCustomerInput):Customer
+}
+type Query{
+    getCustomerById(customerId:Int!):Customer
+    getCustomers:[Customer]
+}
